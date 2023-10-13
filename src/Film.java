@@ -1,3 +1,4 @@
+import java.time.LocalDate;
 import java.util.Date;
 
 public class Film extends Movie {
@@ -5,7 +6,7 @@ public class Film extends Movie {
     private int rank;
     private int peak;
 
-    public Film(String title, long moneyEarned, Date release, int rank, int peak) {
+    public Film(String title, long moneyEarned, LocalDate release, int rank, int peak) {
         super(title, moneyEarned, release);
         this.rank = rank;
         this.peak = peak;

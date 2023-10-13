@@ -1,4 +1,4 @@
-import java.text.Format;
+import java.time.LocalDate;
 import java.util.Date;
 
 public class Main {
@@ -6,7 +6,7 @@ public class Main {
         // construct a Film object
         // Rank	Peak	Title	Worldwide gross	Year	Reference(s)
         //  1	1	Avatar	$2,923,706,026	2009
-        Date date1 = new Date(2009, 1, 1);
+        LocalDate date1 = LocalDate.parse("2009-01-01");
         Film film1 = new Film("Avatar",2923706026l,date1,1,1);
         System.out.println(film1);
         // construct a Video object

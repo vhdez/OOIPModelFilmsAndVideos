@@ -1,11 +1,11 @@
-import java.util.Date;
+import java.time.LocalDate;
 
 public class Movie {
     private String title;
     private long moneyEarned;
-    private Date release;
+    private LocalDate release;
 
-    public Movie(String title, long moneyEarned, Date release) {
+    public Movie(String title, long moneyEarned, LocalDate release) {
         this.title = title;
         this.moneyEarned = moneyEarned;
         this.release = release;
@@ -27,11 +27,11 @@ public class Movie {
         this.moneyEarned = moneyEarned;
     }
 
-    public Date getRelease() {
+    public LocalDate getRelease() {
         return release;
     }
 
-    public void setRelease(Date release) {
+    public void setRelease(LocalDate release) {
         this.release = release;
     }
 
