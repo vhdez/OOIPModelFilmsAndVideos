@@ -29,7 +29,6 @@ public class Film extends Movie {
     }
 
     public  String toString() {
-        super.toString();
         return "Rank #" + getRank() + ": " + super.toString() + " and peaked at " + getPeak() + ".";
     }
 

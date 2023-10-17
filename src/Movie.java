@@ -1,6 +1,6 @@
 import java.time.LocalDate;
 
-public class Movie {
+public class Movie extends Object {
     private String title;
     private long moneyEarned;
     private LocalDate release;
