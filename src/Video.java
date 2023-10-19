@@ -1,5 +1,8 @@
 import java.io.File;
 import java.time.LocalDate;
+import java.time.format.DateTimeFormatter;
+import java.time.format.DateTimeFormatterBuilder;
+import java.util.Locale;
 import java.util.Scanner;
 
 public class Video extends Movie {
@@ -58,9 +61,32 @@ public class Video extends Movie {
     public static void readData() throws Exception {
         File dataFile = new File("src/VideosData");
         Scanner dataScanner = new Scanner(dataFile);
-        dataScanner.useDelimiter("\t");
+        dataScanner.useDelimiter("\t|\n");
+
         while (dataScanner.hasNext()) {
-            System.out.println(dataScanner.next());
+            // construct  1 video object using 7 chunks of data
+            String title = dataScanner.next();
+            String releaseDate = dataScanner.next();
+            DateTimeFormatter formatter = new DateTimeFormatterBuilder()
+                    .parseCaseInsensitive()
+                    .append(DateTimeFormatter.ofPattern("MMMM d, uuuu"))
+                    .toFormatter(Locale.ENGLISH);            //convert String to LocalDate
+            LocalDate releaseAsLocalDate = LocalDate.parse(releaseDate, formatter);
+
+            Long totalReleases = dataScanner.nextLong();
+            String vhsReleases = dataScanner.next();
+            Long vhsReleasesAsLong = Long.parseLong(vhsReleases);
+            String dvdReleases = dataScanner.next();
+            Long dvdReleasesAsLong = Long.parseLong(dvdReleases);
+            String blurayReleases = dataScanner.next();
+            Long blurayReleasesAsLong = Long.parseLong(blurayReleases);
+            String revenue = dataScanner.next();
+            Long revenueAsLong = Long.parseLong(revenue);
+            // public Video(String title, long moneyEarned, LocalDate release, long allCount, long vhsCount, long dvdCount, long blurayCount) {
+
+            Video newVideo = new Video(title, revenueAsLong, releaseAsLocalDate, totalReleases, vhsReleasesAsLong, dvdReleasesAsLong, blurayReleasesAsLong);
+            System.out.println(newVideo);
         }
+
     }
 }
