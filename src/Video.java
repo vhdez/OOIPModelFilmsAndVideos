@@ -6,8 +6,6 @@ import java.util.Locale;
 import java.util.Scanner;
 
 public class Video extends Movie {
-
-
     private long allCount;
     private long vhsCount;
     private long dvdCount;
@@ -116,8 +114,6 @@ public class Video extends Movie {
             revenue = revenue.replace(",", "");
             revenue = revenue.replace("$", "");
             Long revenueAsLong = Long.parseLong(revenue);
-
-            // public Video(String title, long moneyEarned, LocalDate release, long allCount, long vhsCount, long dvdCount, long blurayCount) {
 
             Video newVideo = new Video(title, revenueAsLong, releaseAsLocalDate, totalReleases, vhsReleasesAsLong, dvdReleasesAsLong, blurayReleasesAsLong);
             System.out.println(newVideo);
